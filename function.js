@@ -56,6 +56,42 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
 });
 
+
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+// try autoplay
+window.addEventListener("load", () => {
+  music.play().then(() => {
+    setMusicState(true);
+  }).catch(() => {
+    setMusicState(false);
+  });
+});
+
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    setMusicState(true);
+  } else {
+    music.pause();
+    setMusicState(false);
+  }
+}
+
+function setMusicState(isPlaying) {
+  if (isPlaying) {
+    btn.textContent = "🔊 Music ON";
+    btn.classList.add("on");
+    btn.classList.remove("off");
+  } else {
+    btn.textContent = "🔇 Music OFF";
+    btn.classList.add("off");
+    btn.classList.remove("on");
+  }
+}
+
+
 // --- Map location popup ---
 function showLocationInfo(location) {
   document.querySelectorAll('.loc-story').forEach(s => {

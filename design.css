@@ -1078,9 +1078,36 @@ footer {
     margin-top: 4px;
     font-style: italic;
 }
+.music-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fffaf2;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
 
+/* 🔴 OFF state (muted brown) */
+.music-btn.off {
+  background: #7a4e2d;   /* dark brown */
+  box-shadow: 0 0 0px transparent;
+}
+
+/* 🟢 ON state (warm glowing brown) */
+.music-btn.on {
+  background: #a66a3f;   /* warm golden brown */
+  box-shadow: 0 0 14px rgba(166, 106, 63, 0.6);
+  transform: scale(1.05);
+}
+
+/* ✨ Hover effect */
+.music-btn:hover {
+  transform: scale(1.1);
+  background: #8b5a33;
+}
 /* ===================================================
-   RESPONSIVE
+    RESPONSIVE
 =================================================== */
 @media (max-width: 900px) {
   .timeline::before { left: 20px; }
